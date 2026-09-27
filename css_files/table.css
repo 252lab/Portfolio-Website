@@ -1,0 +1,9 @@
+/* formatting for the links table*/
+
+th, td {
+  padding: 15px;
+  background-color: #AED581;
+  font-family: "Consolas";
+  align-items: center;
+  max-width: 100%;
+}
