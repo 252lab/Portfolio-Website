@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+    /* class for centering items */
+    .center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* for removing link underlines */
+    a {
+        text-decoration: none;
+    }
+
+    /* header - used for the navigation bar */
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    h2,
+    p {
+        margin: 10px;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #AED581;
+    }
+
+    ul li {
+        float: right;
+    }
+
+    ul li a {
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-family: "Consolas";
+    }
+
+    ul li a:hover {
+        background-color: yellow;
+    }
+
+    /* used for the padding around the main contents of the webpage */
+
+    .bodyPadding {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+
+    <ul>
+
+        <!-- page links-->
+
+        <li><b><a href="portfolio.html" style="color:black;" style="font-family:Consolas;"
+                    style="font-size:16px;">Portfolio</a></b></li>
+        <li><b><a href="cv.html" style="color:black;" style="font-family:Consolas;" style="font-size:16px;">CV</a></b>
+        </li>
+        <li><b><a href="index.html" style="color:black;" style="font-family:Consolas;" style="font-size:16px;"> Home
+                </a></b></li>
+
+    </ul>
+
+</head>
+
+<!-- link to css stylesheets-->
+
+<link rel="stylesheet" href="css_files/table.css">
+<link rel="stylesheet" href="css_files/footer.css">
+<link rel="stylesheet" href="css_files/columns.css">
+<link rel="stylesheet" href="css_files/image.css">
+
+<!-- Main body-->
+
+<body>
+    <div class="bodyPadding" style="font-family:Consolas;">
+        <br>
+
+        <h1 style="text-align: center;" style="font-size:40px;">- About Me -</h1>
+
+
+        <!-- table for external links -->
+        <br>
+
+        <h2 style="text-align: center;">External Links</h2>
+        <br>
+        <table class="center">
+            <tr>
+                <th><a href="https://www.linkedin.com/in/laura-b-7ba1a4262/"> LinkedIn </a></th>
+                <th><a href="https://github.com/252lab">Github</a></th>
+                <th><a href="https://learn.microsoft.com/en-us/users/lab252-8758/">Microsoft Learn</a></th>
+            </tr>
+        </table>
+
+        <br>
+
+        <!-- splitting the page into two columns-->
+
+        <div class="row">
+
+            <!-- the left column contains the general overview information-->
+            <div class="column">
+                <br>
+
+                <p>
+                    My name is Laura Bonnelame, and I am a final year Computer Science BSc student at the University of
+                    Exeter. I am based out of London primarily, and Exeter during the completion of my university
+                    course. I am aiming to obtain either a graduate job or a place on a master's course in software
+                    engineering or game design/programming.
+                </p>
+
+                <br>
+                <p>I am proficient in programming languages such as CSS, HTML, Python and C++. Furthermore, I am
+                    currently completing the Free Foundational C# with Microsoft Certification available on
+                    FreeCodeCamp, with the goal of building a strong understanding of C#, for the purpose of learning
+                    how to use Unity. In addition to this, I have completed various solo and team projects throughout
+                    university, as well as recently completing three game projects in the Godot engine.</p>
+                <br>
+                <p>
+                    My enthusiasm for software engineering stems from the combination of being interested in maths and
+                    science, and passion for art and creativity. Coding allows me to combine the two and create various
+                    functional projects and see my ideas come to life. I aim to continue learning and improving my
+                    programming and problem-solving skills throughout the final year of my course and personal projects.
+                </p>
+                <br>
+                <p>For more information, visit the CV and portfolio pages.</p>
+
+            </div>
+
+            <!-- the right column contains important links and an image oif myself-->
+            <div class="column">
+
+                <!-- Professional photo -->
+                <div style="text-align: center;">
+                    <img src="images/pfp.jpg" alt="Photo of Laura Bonnelame.">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+<!-- page footer-->
+<div class="footer">
+    <div style="text-align: center;">
+        <p>Content copyright © 2026.</p>
+    </div>
+</div>
+
+</html>

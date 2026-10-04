@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+    /* class for centering items */
+    .center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* for removing link underlines */
+    a {
+        text-decoration: none;
+    }
+
+    /* header - used for the navigation bar */
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    h2,
+    p {
+        margin: 10px;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #AED581;
+    }
+
+    ul li {
+        float: right;
+    }
+
+    ul li a {
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-family: "Consolas";
+    }
+
+    ul li a:hover {
+        background-color: yellow;
+    }
+
+    /* used for the padding around the main contents of the webpage */
+
+    .bodyPadding {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+
+    <ul>
+
+        <!-- page links-->
+
+        <li><b><a href="portfolio.html" style="color:black;" style="font-family:Consolas;"
+                    style="font-size:16px;">Portfolio</a></b></li>
+        <li><b><a href="cv.html" style="color:black;" style="font-family:Consolas;" style="font-size:16px;">CV</a></b>
+        </li>
+        <li><b><a href="index.html" style="color:black;" style="font-family:Consolas;" style="font-size:16px;"> Home
+                </a></b></li>
+
+    </ul>
+
+</head>
+
+<!-- link to css stylesheets-->
+
+<link rel="stylesheet" href="css_files/footer.css">
+<link rel="stylesheet" href="css_files/image.css">
+<link rel="stylesheet" href="css_files/table.css">
+
+<!-- link to java script file-->
+<script src="js/gallery.js"></script>
+
+<!-- Main body-->
+
+<body>
+    <div class="bodyPadding" style="font-family:Consolas;">
+        <h1 style="text-align: center;">- Portfolio -</h1>
+
+        <!-- portfolio for Adventure Platformer game-->
+
+
+        <h3 style="text-align: center;">Adventure Platformer</h3>
+        <br>
+        <!-- Slideshow container -->
+        <div id="slideshow1" class="slideshow-container">
+
+            <!-- Full-width images with number and caption text -->
+            <div class="mySlides fade">
+                <img src="images/AP_1.png" alt="An in-game level.">
+            </div>
+
+            <div class="mySlides fade">
+                <img src="images/AP_2.png" alt="A different in-game level.">
+            </div>
+
+
+            <div class="mySlides fade">
+                <img src="images/AP_3.png" alt="The starting screen.">
+            </div>
+
+
+            <div class="mySlides fade">
+                <img src="images/AP_4.png" alt="The end screen.">
+            </div>
+
+
+
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides(-1, this.parentNode)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1, this.parentNode)">&#10095;</a>
+
+
+            <!-- The dots/circles -->
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1, slideshow1)"></span>
+                <span class="dot" onclick="currentSlide(2, slideshow1)"></span>
+                <span class="dot" onclick="currentSlide(3, slideshow1)"></span>
+                <span class="dot" onclick="currentSlide(4, slideshow1)"></span>
+            </div>
+
+        </div>
+        <!-- Description -->
+        <br>
+        <p>This is my first original game, built with Godot 4.0. The premise of the game is that you are a thief that is
+            trying to steal a necklace that is being protected by a group of knights. Dodge or attack the knights while
+            overcoming obstacles to progress towards your end goal. The gameplay consists of nine main levels, with an
+            extra level ten holding the win condition for the game. Once the player collides with the artifact on level
+            ten, it triggers the end screen. The game is a platformer with enemies, which the player can choose to fight
+            or avoid, depending on their preference. The player can take three hits from the enemy before they die. On
+            the other hand, the enemy dies when attacked by the player. The player has the choice between using a
+            variety of controls to best fit how they play. Any assets used are credited in the README file. The game was
+            inspired by the skills I learnt while completing tutorials.</p>
+        <br>
+        <p>The approach I took to develop this game was to first set up each game scene and find any required assets for
+            the game (found through itch.io). The game scenes consisted of the player, the enemy, moving platforms, the
+            prize the main scene, and a test level scene for making sure the other scenes worked. The fade scene was
+            added later during developing the start and end screens and game levels. These scenes were created first as
+            they controlled all gameplay within the game. Each scene was assigned an appropriate root node (such as
+            Node2D for the main scene and CharacterBody2D for the player scene), and child nodes to handle aspects such
+            as sprite animations (through AnimatedSprite2D nodes) and collision (through CollisionShape2D nodes). The
+            gameplay controls were also set. Then the initial scripting was added, alongside interactions between
+            different game scenes. These were the main.gd, player.gd, and enemy.gd scripts. player.gd was set up to
+            handle the player's physics and animations, enemy.gd was set up to control the enemy's movements and
+            player-enemy collision, and main.gd to handle interactions between the enemies and player with the current
+            level and the start and end screens. Moreover, the main.gd script was set up to handle changing game levels
+            and loading the current level. Thirdly, I designed the levels and implemented the start and end screens.
+            This
+            was when the fade scene and fade.gd were created, to handle fading in and out of levels. Finally, I tested
+            the complete game and fixed any issues that had arisen. Testing also took place all throughout the creation
+            of the game.</p>
+        <br>
+        <p>One of the problems I faced was how to handle collision between the player and enemy, and the enemy and the
+            tilemap. The player and enemy collision were required to handle the game's basic combat system. The solution
+            was, as the base node of each enemy is an Area2D node, it can be detected what node collides with
+            it. So, in the enemy.gd script, it checks if the body that has collided with the enemy is the player body.
+            If
+            that is the case, it splits off into another decision: checking if the player is currently attacking the
+            enemy. This is controlled by a Boolean flag, is_player_attacking, set in the player.gd script, with false as
+            it's default value. When the player presses the attack key, is_player_attacking is set to true while the
+            player's attacking animation is playing. It is set back to false after the animation has been completed. If
+            the player is detected to be attacking the enemy, the game plays the “die” animation for the enemy and frees
+            them from the queue. On the other hand, if the player is not actively attacking the enemy, the “attacking”
+            animation plays and the enemy emits a custom signal, player_hit. This is received in the main.gd script by
+            the _on_player_hit function, which calls the player.gd's lose_health function, and checks if the player is
+            dead. If the player is dead, the _on_player_died function is called, which handles the player sprite
+            animation and resetting the game scene. Also, as the game level resets when the player dies, any enemies
+            that have been killed respawn. In regard to the other collision issue, the game required the enemy to change
+            movement directions whenever they collided with a wall or an edge of a platform. Originally, this was
+            implemented by using CollisionShape2D nodes to detect collision with the ground and walls, but this resulted
+            in enemies after the first three levels, when loaded, ignoring the tilemap collision and walking in one
+            direction until they got stuck. I rectified this by using two RayCast2D nodes, one for the floor and one for
+            walls to detect if the enemy was about to collide with a wall or walk of a platform. If so, the enemy would
+            change direction, and the nodes' positions would be flipped to the opposite side.</p>
+        <br>
+        <p>Another complication I discovered was managing sprite animations. Specific sprite animations had to be
+            triggered by specific events, but some animations, such as the death animations, would not be triggered at
+            all. Additionally, some animations, such as the player “attacking” animation, would only play the first few
+            frames before freezing. The main issue was that as these weren't the default animations, (the running
+            animations for the player and enemy, and the idle animation for the player), they were being overwritten by
+            them. The first step to solving this, for the player, was by splitting the functions into ones that handled
+            the player physics, and ones that handled the player animations. For some animations, the fix was to then
+            use the animation_finished signal alongside the await keyword, to ensure that the animation had finished
+            playing before any further action was taken. For other animations, specifically player ones, a Boolean flag
+            is used. The variable overwrite_animation is set to true at the start of every function which triggers an
+            animation, apart from the function that handles the “idle” and “run” animations for the player. This blocks
+            the latter animations from taking priority over the player animations that are trying to play. At the end of
+            each function, after the required animations have stopped playing, overwrite_animation is set back to false.
+            The “idle” and “run” animations are controlled within an if statement with the condition of not
+            overwrite_animation.</p>
+        <br>
+        <p>A separate issue I dealt with was setting up the start screen. As the start screen is not its own scene,
+            rather a HUD displayed over the main screen, the player still could move their character, as the loaded
+            level is just hidden. Furthermore, the player could still attack - which would always happen as the user had
+            to left-click the button to start the game and left-click is one of the inputs for player attacks. However,
+            the game tree couldn't be paused as a simple solution, as then the player would be unable to click the start
+            game button. The answer I came up with was to disable the player's movement. This was once again done
+            through using a Boolean flag, can_move, assigned in player.gd as true as its default value. During the
+            function that sets up the game's levels, it is checked what level is being set up. If that level was the
+            first level, it retrieved the player node and set the can_move variable to false. The variable is then set
+            back to true in the _on_button_pressed function, which hides the start screen once the start button is
+            pressed.</p>
+
+        <br>
+
+
+
+        <!-- GitHub link-->
+        <table class="center">
+            <tr>
+                <th><a href="https://github.com/252lab/Adventure-Platformer-Game"> GitHub Project Link </a></th>
+
+        </table>
+        <br>
+
+
+        <!-- portfolio for Platformer tutorial game-->
+        <br>
+        <hr class="dotted">
+        <br>
+
+        <h3 style="text-align: center;">Platformer Game Tutorial</h3>
+        <br>
+        <!-- Slideshow container -->
+        <div id="slideshow2" class="slideshow-container">
+
+            <!-- Full-width images with number and caption text -->
+            <div class="mySlides fade">
+                <img src="images/PG_1.png" alt="The first level in-game.">
+            </div>
+
+            <div class="mySlides fade">
+                <img src="images/PG_2.png" alt="The end screen.">
+            </div>
+
+
+
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides(-1, this.parentNode)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1, this.parentNode)">&#10095;</a>
+
+            <!-- The dots/circles -->
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1, slideshow2)"></span>
+                <span class="dot" onclick="currentSlide(2, slideshow2)"></span>
+            </div>
+        </div>
+        <br>
+        <br>
+        <!-- Description -->
+        <p>This tutorial project further expanded my knowledge of Godot and allowed me to work and experiment with
+            elements of Godot that I hadn't before. The basis of this project was to create a small multi-level
+            platformer with collectable items, when collected increased the player's score by one, and enemies, which
+            had to be avoided as when the player collides with them, kills the player and returns them back to the start
+            of the level. The game also features moving platforms, which adds an extra challenge to the game because it
+            requires the player to time their jumps correctly.</p>
+        <br>
+        <p>Completing this project expanded my Godot knowledge greatly, as I worked with a variety of features and nodes
+            that I had not in the previous project. Some of these features included a tilemap, player gravity, audio,
+            auto-enemy movements, and animated character sprites. I discovered how to use tilemaps, which are a key
+            aspect of many 2D games. Tilemaps are controlled through the TileMapLayer node in Godot, which is used to
+            create grid-based maps. This is also where any collision with the game map is controlled. I also learnt how
+            to handle horizontal player movement, which included jumps. By adjusting the jump velocity, I could control
+            how high and far the player could jump, which could control the difficulty of the game. I picked up how to
+            import and play background music and sound effects in game, which were handled by AudioStreamPlayer2D nodes.
+            They could be set to auto play, and also called within a script, which is how the sound effects were
+            controlled. Furthermore, I learnt how sprite animations worked, especially ones that relate to a specific
+            in-game event being triggered, such as the player dying. These animations were assigned through the use of
+            an AnimatedSprite2D node and sprite sheet. They can then be set to play when specific events happen in the
+            script. In addition to this, I expanded my knowledge on how signals work in Godot, and how to create an
+            assign custom signals and receiver functions. The main situation this was used for in the project was to
+            control the player collision with the enemies, as the enemies emitted the custom player_died signal, but it
+            was the main.gd script that handled the signal receiver. This resulted in the signal needing to be connected
+            to each enemy in a level every time the level was loaded.</p>
+        <br>
+        <p>My own contributions to the project were the level designs, as well as adding the end screen and changing how
+            the scoring worked. In the tutorial, it taught how to make three levels and how to move between them but
+            didn't add a way to handle once all of the levels had been completed. I rectified this by pausing the game
+            tree, so the player and enemies could no longer act, and then displaying an end screen, with the player's
+            score. This required modifying the _setup_level function (which handles setting up the game level which
+            is to be loaded) to check if the current level was the final level. If so, when the player collides with the
+            exit, display the end screen rather than trying to move them onto the next level. The score was originally
+            meant to reset to zero every time the player died, but I changed this to where the score reset to the value
+            it was at the start of the current level, as I believe this makes the most sense as it doesn't undo the
+            player's previous progress.</p>
+
+        <br>
+
+        <!-- GitHub link-->
+        <table class="center">
+            <tr>
+                <th><a href="https://github.com/252lab/Godot-2D-Platformer-Tutorial"> GitHub Project Link </a></th>
+
+        </table>
+        <br>
+
+
+        <!-- portfolio for Shooter Game-->
+        <br>
+        <hr class="dotted">
+        <br>
+
+        <h3 style="text-align: center;">Shooter Game Tutorial</h3>
+        <br>
+        <!-- Slideshow container -->
+        <div id="slideshow3" class="slideshow-container">
+
+            <!-- Full-width images with number and caption text -->
+            <div class="mySlides fade">
+                <img src="images/SG_1.png" alt="Gameplay.">
+            </div>
+
+            <div class="mySlides fade">
+                <img src="images/SG_2.png" alt="The end screen.">
+            </div>
+
+
+
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides(-1, this.parentNode)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1, this.parentNode)">&#10095;</a>
+
+            <!-- The dots/circles -->
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1, slideshow3)"></span>
+                <span class="dot" onclick="currentSlide(2, slideshow3)"></span>
+            </div>
+
+        </div>
+        <br>
+        <!-- Description -->
+        <p>This was a tutorial project that I completed, which taught be the basics of the Godot engine and GD script.
+            It also was the first 2D game I have completed. The basis of this project was to create a Vampire Survivor
+            style rogue-like game, in which the player tries and kill as many slimes as possible until the player dies.
+        </p>
+        <br>
+        <p>Through this project, I learned the basics of game physics, such as how to control player and enemy movement,
+            and how to assign animations to specific actions taken. It also taught me how to handle player and enemy
+            health in-game, which is a key feature of any game that features combat. It also was a decent introduction
+            to Godot's node system, the backbone of the game engine. Nodes are the base of any scene in Godot and are
+            used to handle elements such as enemy and player collision, audio, and the HUD. This is then combined with
+            scripts, which are assigned to specific nodes and are used to expand control over each game element. It also
+            taught me how to auto-spawn enemies using the Path2D and PathFollow2D nodes.</p>
+        <br>
+        <p>Once the tutorial was completed, I added the restart button and score functionality to the game. The score
+            function was added so the player can measure how many slimes that they have killed and try and beat their
+            high score. The restart button was so the player did not have to exit and reopen the application to load
+            another game after they died. The score function was built using coding principles that I learnt through my
+            studies. On the other hand, the restart game button introduced me to working with pausing and playing scene
+            trees and reloading game scenes. This is because the game tree was paused upon completion, and needed to be
+            unpaused, and then the main game scene reloaded to return the player and enemies to their original states.
+        </p>
+
+        <br>
+
+        <!-- GitHub link-->
+        <table class="center">
+            <tr>
+                <th><a href="https://github.com/252lab/Rogue-Like-shooter-game-tutorial"> GitHub Project Link </a></th>
+
+        </table>
+        <br>
+
+    </div>
+
+
+</body>
+
+
+<div class="footer">
+    <div style="text-align: center;">
+        <p>Content copyright © 2026.</p>
+    </div>
+</div>
+
+</html>

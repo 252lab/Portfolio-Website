@@ -1,0 +1,17 @@
+/*Used for the two column pages*/
+/* pages only splits into columns if the screen is larger than a certain size*/
+
+@media (min-width: 850px) {
+  .column {
+    float: left;
+    width: 50%;
+  }
+
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+}
