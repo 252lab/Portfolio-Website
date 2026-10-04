@@ -8,7 +8,7 @@ th, td {
   max-width: 100%;
 
   /* sets the font size of the page if it is large enough */
-  @media (min-width: 768px){
-    font-size: 25px;
+  @media (min-width: 850px){
+    font-size: 25vw;
   }
 }
